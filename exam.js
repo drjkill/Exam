@@ -6,6 +6,7 @@
    constructor (exam_Number, anzahl_Teilnehmer, studenten) {
       this.exam_Number       = exam_Number;
       this.anzahl_Teilnehmer = anzahl_Teilnehmer;
+      this.note              = note;
       this.studenten         = studenten;
     };
     get_exam_Number() {
