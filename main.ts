@@ -1,7 +1,7 @@
 import { Exam } from "./Klassen/exam";
 
 /*====================== Erstelle Teilprüfung 1 ================================================== */
-const teilprüfung1 = new Exam(1,5,[]);
+const teilprüfung1 = new Exam(1,5,[],[]);
 
 /*====================== Füge initial Studenten hinzu ============================================ */
 teilprüfung1.students.push("Donald Duck");
