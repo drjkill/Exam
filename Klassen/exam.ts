@@ -18,25 +18,34 @@
            return `Teilnehmer: ${this.anzahlTeilnehmer} `; 
     };
     getStudents() {
-        return `Student: ${this.students} `; 
+        return `Studenten: ${this.students}`+`${this.grades}`; 
     };
     addStudent(student: string) {  
         if (this.students.length < this.anzahlTeilnehmer ) {
-            this.addStudent;
+            this.students.push(student);
         }
         else {
-            console.log("Es sind keine Plätze mehr frei");
+            console.log(" Es sind keine Plätze mehr frei !");
+            
         }
-        this.students[this.students.length] = student; 
      }
-     setStudentGrade() {
+     setStudentGrade(student: string , grades: number[]) {
+        if (this.students.indexOf(student) === -1) {
+            console.log("Kein Student mit diesem Namen gefunden!");
+        }
+        else {
+            this.students.indexOf(student) = this.grades   
+            
+            }        
+     };
+
          /**fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
             Note für einen Studenten festzulegen (mit einem Parameter für den
             Namen und einen für die Note). Noten dürfen nur für vorhandene
             Studenten gesetzt werden. Andernfalls geben Sie die Meldung aus
             „Kein Student mit diesem Namen gefunden“ (bedingte Anweisung,
-            boolescher Ausdrucck) */
-     }
+            boolescher Ausdruck) */
+     
      meanGrade() {
          /**fügen Sie eine (Geschäfts-)Methode hinzu (meanGrade), die den
             Durchschnitt aller Noten ausrechnet und diesen zurückgibt (Ergebnis).
@@ -67,8 +76,8 @@
             zusammen mit der Notenstufe (sehr gut, gut, befriedigend,
             ausreichend, mangelhaft) auf die Konsole ausgibt */
      }
-}; 
-
+ 
+    };
 /*========================== Klasse Exams ==================================== */
 export class Exams {
     
@@ -77,21 +86,21 @@ examNumber: number = 10;
 /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
     10 Instanzen der Klasse Exam zu verwalten (in Form einer
     Exemplarvariable).*/
-    constructor (prüfung1, prüfung2, prüfung3, prüfung4, prüfung5) {
+    constructor (/*prüfung1, prüfung2, prüfung3, prüfung4, prüfung5*/) {
 /**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
    (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */  
  
 /**Fügen Sie eine Methode ein, die eine Prüfung anhand der
    Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt */  
   
-   addExam(){ 
+   //addExam(){ 
  /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
     übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
     hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
     Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
     werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
    }
-   removeExam(){
+   // removeExam(){
  /** Ermöglichen Sie das Löschen eines Examens removeExam. Das zu
      löschende Examen soll durch einen Parameter identifiziert werden.
      Sollte kein solches Examen existieren wird die Meldung „Das
@@ -113,8 +122,7 @@ examNumber: number = 10;
 
 
 
-    };
-}
+    
 /*================================================================================== */
 
  /** Halten Sie sich an die (partiellen) Signaturen der Methoden, die

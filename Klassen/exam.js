@@ -19,26 +19,32 @@ class Exam {
     }
     ;
     getStudents() {
-        return `Student: ${this.students} `;
+        return `Studenten: ${this.students}` + `${this.grades}`;
     }
     ;
     addStudent(student) {
         if (this.students.length < this.anzahlTeilnehmer) {
-            this.addStudent;
+            this.students.push(student);
         }
         else {
-            console.log("Es sind keine Plätze mehr frei");
+            console.log(" Es sind keine Plätze mehr frei !");
         }
-        this.students[this.students.length] = student;
     }
-    setStudentGrade() {
-        /**fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
-           Note für einen Studenten festzulegen (mit einem Parameter für den
-           Namen und einen für die Note). Noten dürfen nur für vorhandene
-           Studenten gesetzt werden. Andernfalls geben Sie die Meldung aus
-           „Kein Student mit diesem Namen gefunden“ (bedingte Anweisung,
-           boolescher Ausdrucck) */
+    setStudentGrade(student, grades) {
+        if (this.students.indexOf(student) === -1) {
+            console.log("Kein Student mit diesem Namen gefunden!");
+        }
+        else {
+            this.students.indexOf(student) = this.grades;
+        }
     }
+    ;
+    /**fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
+       Note für einen Studenten festzulegen (mit einem Parameter für den
+       Namen und einen für die Note). Noten dürfen nur für vorhandene
+       Studenten gesetzt werden. Andernfalls geben Sie die Meldung aus
+       „Kein Student mit diesem Namen gefunden“ (bedingte Anweisung,
+       boolescher Ausdruck) */
     meanGrade() {
         /**fügen Sie eine (Geschäfts-)Methode hinzu (meanGrade), die den
            Durchschnitt aller Noten ausrechnet und diesen zurückgibt (Ergebnis).
@@ -77,41 +83,29 @@ class Exams {
     /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
         10 Instanzen der Klasse Exam zu verwalten (in Form einer
         Exemplarvariable).*/
-    constructor(prüfung1, prüfung2, prüfung3, prüfung4, prüfung5) {
+    constructor( /*prüfung1, prüfung2, prüfung3, prüfung4, prüfung5*/) {
         /**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
            (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */
         /**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
         this.examNumber = 10;
         /**Fügen Sie eine Methode ein, die eine Prüfung anhand der
            Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt */
-        addExam();
-        {
-            /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
-               übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
-               hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
-               Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
-               werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
-        }
-        removeExam();
-        {
-            /** Ermöglichen Sie das Löschen eines Examens removeExam. Das zu
-                löschende Examen soll durch einen Parameter identifiziert werden.
-                Sollte kein solches Examen existieren wird die Meldung „Das
-                angegebenen Examen existiert nicht und kann somit nicht gelöscht
-                werden“ ausgegeben werden. (Methode, bedingte Anweisung,
-                boolescher Ausdruck)*/
-        }
-        /** Zum Vergleich zweier Gleitkommazahlen (a und b) verwenden Sie
-            bitte den Ausdruck
-            Double.compare(a, b).
-            Dieser liefert
-            0 wenn a = b
-            -1 wenn a < b
-            +1 wenn a > b */
+        //addExam(){ 
+        /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
+           übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
+           hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
+           Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
+           werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
     }
-    ;
 }
 exports.Exams = Exams;
+/** Zum Vergleich zweier Gleitkommazahlen (a und b) verwenden Sie
+    bitte den Ausdruck
+    Double.compare(a, b).
+    Dieser liefert
+    0 wenn a = b
+    -1 wenn a < b
+    +1 wenn a > b */
 /*================================================================================== */
 /** Halten Sie sich an die (partiellen) Signaturen der Methoden, die
     gegebenen Bezeichner für Exemplarvariablen und Klassen und an die

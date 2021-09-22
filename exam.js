@@ -26,7 +26,7 @@
 /*================== Erstelle Examen ===================================== */
 const exam1 = new Exam(1, 4, ["Mikey Maus,1.0",
                               " Donald Duck",
-                              ,
+                              
                               " Dagobert Duck",
                               " Kater Carlo"
                              ]);
