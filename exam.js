@@ -6,6 +6,7 @@
    constructor (exam_Number, anzahl_Teilnehmer, studenten) {
       this.exam_Number       = exam_Number;
       this.anzahl_Teilnehmer = anzahl_Teilnehmer;
+      //this.note              = note;
       this.studenten         = studenten;
     };
     get_exam_Number() {
@@ -23,9 +24,9 @@
 
 
 /*================== Erstelle Examen ===================================== */
-const exam1 = new Exam(1, 4, ["Mikey Maus",
+const exam1 = new Exam(1, 4, ["Mikey Maus,1.0",
                               " Donald Duck",
-                              ,
+                              
                               " Dagobert Duck",
                               " Kater Carlo"
                              ]);
