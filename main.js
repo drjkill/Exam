@@ -19,8 +19,7 @@ teilprüfung1.addStudent("Phantomias");
 /*================================================================================================ */
 /*======================= Gebe alles in Console aus ============================================== */
 console.log(teilprüfung1.getExamNumber());
-console.log(teilprüfung1.getAnzahlTeilnehmer());
-console.log(teilprüfung1.getStudents());
+console.log(teilprüfung1.printStudents());
 teilprüfung1.setStudentGrade("Donald Duck", [1.0]);
 teilprüfung1.setStudentGrade("Dagobert Duck", [1.3]);
 teilprüfung1.setStudentGrade("Goofy Goof", [2.6]);
