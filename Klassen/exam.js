@@ -53,6 +53,7 @@ class Exam {
             console.log("Kein Student mit diesem Namen gefunden!");
         }
         else {
+            this.students.push(student, grades);
         }
     }
     ;

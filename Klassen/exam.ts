@@ -4,8 +4,8 @@
      examNumber:       number;
      anzahlTeilnehmer: number;
      students:         string[];
-     grades:           number[];
- constructor (examNumber: number, anzahlTeilnehmer: number, students: string[],grades:number[]) {
+     grades:           string[];
+ constructor (examNumber: number, anzahlTeilnehmer: number, students: string[],grades:string[]) {
       this.examNumber       = examNumber;
       this.anzahlTeilnehmer = anzahlTeilnehmer;
       this.students         = students;
@@ -39,7 +39,7 @@
         entsprechenden booleschen Ausdruck). */    
             return `Studenten: ${this.students}`; 
         };
-     setStudentGrade(student: string , grades: number[]) {
+     setStudentGrade(student: string , grades: string) {
      /* fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
         Note für einen Studenten festzulegen (mit einem Parameter für den
         Namen und einen für die Note). Noten dürfen nur für vorhandene
@@ -50,7 +50,7 @@
             console.log("Kein Student mit diesem Namen gefunden!");
         }
         else {
-                       
+            this.students.push(student, grades);     
             }        
      };    
      meanGrade() {
