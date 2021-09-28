@@ -1,7 +1,7 @@
 import { Exam } from "./Klassen/exam";
 
 /*====================== Erstelle Teilprüfung 1 ================================================== */
-const teilprüfung1 = new Exam(1,5,[],[]);
+const teilprüfung1 = new Exam(1,10,[],[]);
 
 /*====================== Füge initial Studenten hinzu ============================================ */
 teilprüfung1.addStudent("Donald Duck");
@@ -26,10 +26,11 @@ teilprüfung1.setStudentGrade("Phantomias",1.5);             // Kein Student mit
    Prüfungen in die Konsole ausgibt (Nummer der Prüfung und
    Durchschnittsnote) (externeranzahl Methodenaufruf ). */
 /*================================================================================================ */
-teilprüfung1.meanGrade();
-teilprüfung1.bestGrade();
 
 /*======================= Gebe alles in Console aus ============================================== */
-console.log(teilprüfung1.getExamNumber());                   // Teilprüfung: 1
-console.log(teilprüfung1.printStudents());                   // Studenten: ...,...
-console.log(teilprüfung1.studentsWithGrade());
+console.log(teilprüfung1.getExamNumber());      // Teilprüfung: 1
+console.log(teilprüfung1.printStudents());      // Studenten: ...,...
+teilprüfung1.meanGrade();                       // Notendurchnitt:
+teilprüfung1.bestGrade();                       // Beste Note:
+console.log(teilprüfung1.studentsWithGrade());  // Studenten mit Note:
+teilprüfung1.bestStudents();                    // Bester Student
