@@ -1,26 +1,26 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Exams = exports.Exam = void 0;
 /*=================== Klasse Exam ========================================= */
-class Exam {
-    constructor(examNumber, anzahlTeilnehmer, students, grades) {
+var Exam = /** @class */ (function () {
+    function Exam(examNumber, anzahlTeilnehmer, students, grades) {
         this.examNumber = examNumber;
         this.anzahlTeilnehmer = anzahlTeilnehmer;
         this.students = students;
         this.grades = grades;
     }
     ;
-    setExamNumber(examNumber) {
+    Exam.prototype.setExamNumber = function (examNumber) {
         /* eine verändernde Methode und eine sondierende Methode für die
            Exemplarvariable examNumber */
         this.examNumber = examNumber;
-    }
+    };
     ;
-    getExamNumber() {
-        return `Teilprüfung: ${this.examNumber} `;
-    }
+    Exam.prototype.getExamNumber = function () {
+        return "Teilpr\u00FCfung: " + this.examNumber + " ";
+    };
     ;
-    addStudent(student) {
+    Exam.prototype.addStudent = function (student) {
         /* fügen Sie eine Methode ein (addStudent), die es erlaubt einen
            Studenten „hinzuzufügen“ (mit einem Parameter für den Namen
            (Typ: String)). Sollten keine weiteren Studenten hinzugefügt werden
@@ -32,17 +32,17 @@ class Exam {
         else {
             console.log(" Es sind keine Plätze mehr frei !");
         }
-    }
+    };
     ;
-    printStudents() {
+    Exam.prototype.printStudents = function () {
         /* Fügen Sie eine Methode ein, die die Namen aller Studierenden ausgibt
            (printStudents). Integrieren Sie eine bedingte Anweisung, so dass
            null-Werte nicht ausgegeben werden (formulieren Sie dazu den
            entsprechenden booleschen Ausdruck). */
-        return `Studenten: ${this.students}`;
-    }
+        return "Studenten: " + this.students;
+    };
     ;
-    setStudentGrade(student, grade) {
+    Exam.prototype.setStudentGrade = function (student, grade) {
         /* fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
            Note für einen Studenten festzulegen (mit einem Parameter für den
            Namen und einen für die Note). Noten dürfen nur für vorhandene
@@ -55,60 +55,61 @@ class Exam {
         else {
             this.grades.push(grade);
         }
-        return `Noten: ${this.grades}`;
-    }
+        return "Noten: " + this.grades;
+    };
     ;
-    meanGrade() {
+    Exam.prototype.meanGrade = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu (meanGrade), die den
            Durchschnitt aller Noten ausrechnet und diesen zurückgibt (Ergebnis).
            Verwenden Sie dazu eine for-Schleife. Gehen Sie davon aus, dass für
            jeden Studenten vorher eine Note erfasst wurde. Gehen Sie ebenfalls
            davon aus, dass mindestens ein Student existiert. */
-        const sum = this.grades.reduce((a, b) => a + b, 0);
-        const avarage = sum / this.grades.length;
+        var sum = this.grades.reduce(function (a, b) { return a + b; }, 0);
+        var avarage = sum / this.grades.length;
         console.log("Notendurchschnitt: " + avarage);
-    }
-    bestGrade() {
+    };
+    Exam.prototype.bestGrade = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu, die die beste aller Noten
            findet (bestGrade) und diese zurückgibt (Ergebnis, lokale Variable).
            Verwenden Sie dazu eine for-each-Schleife. Gehen Sie davon aus, dass
            mindestens ein Student mit einer Note existiert. */
-        const bestgrade = this.grades;
+        var bestgrade = this.grades;
         console.log("Beste Note: " + Math.min.apply(null, bestgrade));
-    }
-    studentsWithGrade() {
+    };
+    Exam.prototype.studentsWithGrade = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu studentsWithGrade, die
            die Namen der Studenten zurückgibt, die eine übergebene Note haben
            (Ergebnis). Verwenden Sie dazu while-Schleifen. */
         /*for (let student = 0; student < this.students.length; student++  ) {
             console.log( "Student: " + this.students[student] + " bekommt die Note: " + "???" );
         }*/
-        let studentsWithGrades = [];
+        var studentsWithGrades = [];
         for (var i = 0; i < this.students.length && i < this.grades.length; i++)
             studentsWithGrades[i] = [this.students[i], [this.grades[i]]];
-        return `Students with Grades: ${studentsWithGrades}`;
-    }
-    bestStudents() {
+        return "Students with Grades: " + studentsWithGrades;
+    };
+    Exam.prototype.bestStudents = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu, die Namen der Studenten
            mit der besten Note in die Konsole ausgibt (bestStudents) - denken
            Sie dabei an das Konzept: interne Methodenaufrufe. Gehen Sie davon
            aus, dass mindestens ein Student mit einer Note bereits erfasst wurde. */
-    }
-    printStudentsWithGrades() {
+    };
+    Exam.prototype.printStudentsWithGrades = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu
            (printStudentsWithGrades), die die Namen der Studierenden
            zusammen mit der Notenstufe (sehr gut, gut, befriedigend,
            ausreichend, mangelhaft) auf die Konsole ausgibt */
-    }
-}
+    };
+    return Exam;
+}());
 exports.Exam = Exam;
 ;
 /*========================== Klasse Exams ==================================== */
-class Exams {
+var Exams = /** @class */ (function () {
     /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
         10 Instanzen der Klasse Exam zu verwalten (in Form einer
         Exemplarvariable).*/
-    constructor( /*prüfung1, prüfung2, prüfung3, prüfung4, prüfung5*/) {
+    function Exams( /*prüfung1, prüfung2, prüfung3, prüfung4, prüfung5*/) {
         /**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
            (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */
         /**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
@@ -122,7 +123,8 @@ class Exams {
            Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
            werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
     }
-}
+    return Exams;
+}());
 exports.Exams = Exams;
 function student(student) {
     throw new Error("Function not implemented.");

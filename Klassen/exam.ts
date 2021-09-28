@@ -4,8 +4,8 @@
      examNumber:       number;
      anzahlTeilnehmer: number;
      students:         string[];
-     grades:           string[];
- constructor (examNumber: number, anzahlTeilnehmer: number, students: string[],grades:string[]) {
+     grades:           number[];
+ constructor (examNumber: number, anzahlTeilnehmer: number, students: string[],grades:number[]) {
       this.examNumber       = examNumber;
       this.anzahlTeilnehmer = anzahlTeilnehmer;
       this.students         = students;
@@ -36,40 +36,58 @@
      /* Fügen Sie eine Methode ein, die die Namen aller Studierenden ausgibt
         (printStudents). Integrieren Sie eine bedingte Anweisung, so dass
         null-Werte nicht ausgegeben werden (formulieren Sie dazu den
-        entsprechenden booleschen Ausdruck). */    
+        entsprechenden booleschen Ausdruck). */ 
+
             return `Studenten: ${this.students}`; 
         };
-     setStudentGrade(student: string , grades: string) {
+     setStudentGrade(student: string , grade: number) {
      /* fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
         Note für einen Studenten festzulegen (mit einem Parameter für den
         Namen und einen für die Note). Noten dürfen nur für vorhandene
         Studenten gesetzt werden. Andernfalls geben Sie die Meldung aus
         „Kein Student mit diesem Namen gefunden“ (bedingte Anweisung,
         boolescher Ausdruck) */     
+        
         if (this.students.indexOf(student) === -1) {
             console.log("Kein Student mit diesem Namen gefunden!");
         }
         else {
-            this.students.push(student, grades);     
-            }        
-     };    
+            this.grades.push(grade); 
+            }    
+            return `Noten: ${this.grades}`;    
+     };
      meanGrade() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu (meanGrade), die den
         Durchschnitt aller Noten ausrechnet und diesen zurückgibt (Ergebnis).
         Verwenden Sie dazu eine for-Schleife. Gehen Sie davon aus, dass für
         jeden Studenten vorher eine Note erfasst wurde. Gehen Sie ebenfalls
         davon aus, dass mindestens ein Student existiert. */
+        
+        const sum = this.grades.reduce((a, b) => a + b, 0);
+        const avarage = sum / this.grades.length
+        console.log("Notendurchschnitt: " + avarage);
      }
      bestGrade() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu, die die beste aller Noten
         findet (bestGrade) und diese zurückgibt (Ergebnis, lokale Variable).
         Verwenden Sie dazu eine for-each-Schleife. Gehen Sie davon aus, dass
         mindestens ein Student mit einer Note existiert. */
+        
+        const bestgrade = this.grades;        
+        console.log("Beste Note: " + Math.min.apply(null, bestgrade))
      }
      studentsWithGrade() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu studentsWithGrade, die
         die Namen der Studenten zurückgibt, die eine übergebene Note haben
         (Ergebnis). Verwenden Sie dazu while-Schleifen. */
+        
+        /*for (let student = 0; student < this.students.length; student++  ) {
+            console.log( "Student: " + this.students[student] + " bekommt die Note: " + "???" );
+        }*/
+        let studentsWithGrades = [];
+        for (var i=0; i<this.students.length && i<this.grades.length; i++)
+        studentsWithGrades[i] = [this.students[i], [this.grades[i]]];
+        return `Students with Grades: ${studentsWithGrades}`;
      }
      bestStudents() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu, die Namen der Studenten
@@ -126,6 +144,14 @@ examNumber: number = 10;
      werden“ ausgegeben werden. (Methode, bedingte Anweisung,
      boolescher Ausdruck)*/
      }
+
+function student(student: any) {
+    throw new Error("Function not implemented.");
+}
+
+function grade(grade: any) {
+    throw new Error("Function not implemented.");
+}
  /** Zum Vergleich zweier Gleitkommazahlen (a und b) verwenden Sie
      bitte den Ausdruck
      Double.compare(a, b).

@@ -1,8 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const exam_1 = require("./Klassen/exam");
+exports.__esModule = true;
+var exam_1 = require("./Klassen/exam");
 /*====================== Erstelle Teilprüfung 1 ================================================== */
-const teilprüfung1 = new exam_1.Exam(1, 5, [], []);
+var teilprüfung1 = new exam_1.Exam(1, 5, [], []);
 /*====================== Füge initial Studenten hinzu ============================================ */
 teilprüfung1.addStudent("Donald Duck");
 teilprüfung1.addStudent("Dagobert Duck");
