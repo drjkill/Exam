@@ -81,9 +81,6 @@
         die Namen der Studenten zurückgibt, die eine übergebene Note haben
         (Ergebnis). Verwenden Sie dazu while-Schleifen. */
         
-        /*for (let student = 0; student < this.students.length; student++  ) {
-            console.log( "Student: " + this.students[student] + " bekommt die Note: " + "???" );
-        }*/
         let studentsWithGrades = [];
         for (var i=0; i<this.students.length && i<this.grades.length; i++)
         studentsWithGrades[i] = [this.students[i], [this.grades[i]]];
