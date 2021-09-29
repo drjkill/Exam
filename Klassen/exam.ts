@@ -17,7 +17,8 @@
         this.examNumber = examNumber;
     };    
     getExamNumber() {
-        return `Teilprüfung: ${this.examNumber} ` 
+        console.log(`Teilprüfung: ${this.examNumber} `)
+        return this.examNumber 
     };
     addStudent(student: string) {
     /* fügen Sie eine Methode ein (addStudent), die es erlaubt einen
@@ -38,7 +39,7 @@
         null-Werte nicht ausgegeben werden (formulieren Sie dazu den
         entsprechenden booleschen Ausdruck). */ 
 
-            return `Studenten: ${this.students}`; 
+            return this.students//`Studenten: ${this.students}`; 
         };
      setStudentGrade(student: string , grade: number) {
      /* fügen Sie eine Methode ein (setStudentGrade), die es erlaubt eine
@@ -73,8 +74,9 @@
         Verwenden Sie dazu eine for-each-Schleife. Gehen Sie davon aus, dass
         mindestens ein Student mit einer Note existiert. */
         
-        const bestgrade = this.grades;        
-        console.log("Beste Note: " + Math.min.apply(null, bestgrade))
+        const bestGrade = this.grades;        
+        console.log("Beste Note: " + Math.min.apply(null, bestGrade))
+        return bestGrade
      }
      studentsWithGrade() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu studentsWithGrade, die
@@ -83,28 +85,28 @@
         
         const studentsWithGrade = [];
         for (let i=0; i<this.students.length && i<this.grades.length; i++)
-        studentsWithGrade[i] = [this.students[i], [this.grades[i]]];
-        return `Students with Grades: ${studentsWithGrade}`;
+        studentsWithGrade[i] = [this.students[i], this.grades[i]];
+        //console.log("Students with Grades: " + studentsWithGrade)
+        return studentsWithGrade
+        //return `Students with Grades: ${studentsWithGrade}`;
      }
      bestStudents() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu, die Namen der Studenten
         mit der besten Note in die Konsole ausgibt (bestStudents) - denken
         Sie dabei an das Konzept: interne Methodenaufrufe. Gehen Sie davon
         aus, dass mindestens ein Student mit einer Note bereits erfasst wurde. */
-        const bestStudent = [];
-        for (let i=0; i<this.students.length && i<this.grades.length; i++)
-        const bestgrade = this.grades;
-        Math.min.apply(null, bestgrade))
-        bestStudent[i] = [this.students[i], [this.grades[i]]];
-        return `Bester Student: ${bestStudent}`;
+       const bestStudent = this.studentsWithGrade()
+       //const bestGrade = this.bestGrade()
+         console.log("Bester Student: " + this.studentsWithGrade()[0][0])
+         
         
-     }
+    }
      printStudentsWithGrades() {
      /* fügen Sie eine (Geschäfts-)Methode hinzu
         (printStudentsWithGrades), die die Namen der Studierenden
         zusammen mit der Notenstufe (sehr gut, gut, befriedigend,
         ausreichend, mangelhaft) auf die Konsole ausgibt */
-
+/*
         let grade:number
         switch () {
             case 1: for(let i = 0; i < 2.0; i++){
@@ -125,66 +127,65 @@
             //default:
                // return "OMG! Atmendes Gemüse";
                 //break;
-            }
+            }*/
      }
     };
 
 
 
-
-
-
-
-
-
-
-
-
-    /*========================== Klasse Exams ==================================== */
-export class Exams extends Exam {   
-/**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
-
-/** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
-    10 Instanzen der Klasse Exam zu verwalten (in Form einer
-    Exemplarvariable).*/
+    /*
     
-    examNumber: number = 10;
-
-/**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
-   (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */  
-  getExam(examNumber:number){
-/**Fügen Sie eine Methode ein, die eine Prüfung anhand der
-   Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt */  
-  
-   };
-   addExam(){ 
- /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
-    übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
-    hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
-    Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
-    werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
-  
-    };
-    removeExam(){
- /** Ermöglichen Sie das Löschen eines Examens removeExam. Das zu
-     löschende Examen soll durch einen Parameter identifiziert werden.
-     Sollte kein solches Examen existieren wird die Meldung „Das
-     angegebenen Examen existiert nicht und kann somit nicht gelöscht
-     werden“ ausgegeben werden. (Methode, bedingte Anweisung,
-     boolescher Ausdruck)*/
-
-     };
-    };
- /** Zum Vergleich zweier Gleitkommazahlen (a und b) verwenden Sie
-     bitte den Ausdruck
-     Double.compare(a, b).
-     Dieser liefert
-     0 wenn a = b
-     -1 wenn a < b
-     +1 wenn a > b */
-
- /** Halten Sie sich an die (partiellen) Signaturen der Methoden, die
-     gegebenen Bezeichner für Exemplarvariablen und Klassen und an die
-     Reihenfolge der Parameter.*/
-
- /** Annahme: Namen von Studenten sind niemals gleich! */     
+           let filteredList = bestGrade.filter((bestGrade) => {
+        return bestGrade < 2.0;
+       });
+    
+    ========================== Klasse Exams ==================================== */
+export class Exams extends Exam {   
+    /**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
+    
+    /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
+        10 Instanzen der Klasse Exam zu verwalten (in Form einer
+        Exemplarvariable).*/
+        
+        examNumber: number = 10;
+    
+    /**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
+       (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */  
+      getExam(examNumber:number){
+    /**Fügen Sie eine Methode ein, die eine Prüfung anhand der
+       Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt */  
+      
+       };
+       addExam(){ 
+     /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
+        übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
+        hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
+        Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
+        werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
+      
+        };
+        removeExam(){
+     /** Ermöglichen Sie das Löschen eines Examens removeExam. Das zu
+         löschende Examen soll durch einen Parameter identifiziert werden.
+         Sollte kein solches Examen existieren wird die Meldung „Das
+         angegebenen Examen existiert nicht und kann somit nicht gelöscht
+         werden“ ausgegeben werden. (Methode, bedingte Anweisung,
+         boolescher Ausdruck)*/
+    
+         };
+        };
+     /** Zum Vergleich zweier Gleitkommazahlen (a und b) verwenden Sie
+         bitte den Ausdruck
+         Double.compare(a, b).
+         Dieser liefert
+         0 wenn a = b
+         -1 wenn a < b
+         +1 wenn a > b */
+    
+     /** Halten Sie sich an die (partiellen) Signaturen der Methoden, die
+         gegebenen Bezeichner für Exemplarvariablen und Klassen und an die
+         Reihenfolge der Parameter.*/
+    
+     /** Annahme: Namen von Studenten sind niemals gleich! */   
+     
+     

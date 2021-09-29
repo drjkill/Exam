@@ -30,7 +30,8 @@ var Exam = /** @class */ (function () {
     };
     ;
     Exam.prototype.getExamNumber = function () {
-        return "Teilpr\u00FCfung: " + this.examNumber + " ";
+        console.log("Teilpr\u00FCfung: " + this.examNumber + " ");
+        return this.examNumber;
     };
     ;
     Exam.prototype.addStudent = function (student) {
@@ -52,7 +53,7 @@ var Exam = /** @class */ (function () {
            (printStudents). Integrieren Sie eine bedingte Anweisung, so dass
            null-Werte nicht ausgegeben werden (formulieren Sie dazu den
            entsprechenden booleschen Ausdruck). */
-        return "Studenten: " + this.students;
+        return this.students; //`Studenten: ${this.students}`; 
     };
     ;
     Exam.prototype.setStudentGrade = function (student, grade) {
@@ -86,8 +87,9 @@ var Exam = /** @class */ (function () {
            findet (bestGrade) und diese zurückgibt (Ergebnis, lokale Variable).
            Verwenden Sie dazu eine for-each-Schleife. Gehen Sie davon aus, dass
            mindestens ein Student mit einer Note existiert. */
-        var bestgrade = this.grades;
-        console.log("Beste Note: " + Math.min.apply(null, bestgrade));
+        var bestGrade = this.grades;
+        console.log("Beste Note: " + Math.min.apply(null, bestGrade));
+        return bestGrade;
     };
     Exam.prototype.studentsWithGrade = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu studentsWithGrade, die
@@ -95,63 +97,59 @@ var Exam = /** @class */ (function () {
            (Ergebnis). Verwenden Sie dazu while-Schleifen. */
         var studentsWithGrade = [];
         for (var i = 0; i < this.students.length && i < this.grades.length; i++)
-            studentsWithGrade[i] = [this.students[i], [this.grades[i]]];
-        return "Students with Grades: " + studentsWithGrade;
+            studentsWithGrade[i] = [this.students[i], this.grades[i]];
+        //console.log("Students with Grades: " + studentsWithGrade)
+        return studentsWithGrade;
+        //return `Students with Grades: ${studentsWithGrade}`;
     };
     Exam.prototype.bestStudents = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu, die Namen der Studenten
            mit der besten Note in die Konsole ausgibt (bestStudents) - denken
            Sie dabei an das Konzept: interne Methodenaufrufe. Gehen Sie davon
            aus, dass mindestens ein Student mit einer Note bereits erfasst wurde. */
-        var bestStudent = [];
-        for (var i = 0; i < this.students.length && i < this.grades.length; i++)
-            var bestgrade = this.grades;
-        Math.min.apply(null, bestgrade);
-        bestStudent[i] = [this.students[i], [this.grades[i]]];
-        return "Bester Student: " + bestStudent;
+        var bestStudent = this.studentsWithGrade();
+        //const bestGrade = this.bestGrade()
+        console.log("Bester Student: " + this.studentsWithGrade()[0][0]);
     };
     Exam.prototype.printStudentsWithGrades = function () {
         /* fügen Sie eine (Geschäfts-)Methode hinzu
            (printStudentsWithGrades), die die Namen der Studierenden
            zusammen mit der Notenstufe (sehr gut, gut, befriedigend,
            ausreichend, mangelhaft) auf die Konsole ausgibt */
-        var grade;
-        switch () {
-            case 1:
-                for (var i = 0; i < 2.0; i++) {
-                    return "sehr gut";
-                }
-                break;
-            case 2:
-                for (var i = 2.00; i < 3.0; i++) {
-                    return "gut";
-                }
-                break;
-            case 3:
-                for (var i = 3.0; i < 4.0; i++) {
-                    return "befriedigend";
-                }
-                break;
-            case 4:
-                for (var i = 4.0; i < 5.0; i++) {
-                    return "ausreichend";
-                }
-                break;
-            case 5:
-                for (var i = 5.0; i < 6.0; i++) {
-                    return "mangelhaft";
-                }
-                break;
-            //default:
-            // return "OMG! Atmendes Gemüse";
-            //break;
-        }
+        /*
+                let grade:number
+                switch () {
+                    case 1: for(let i = 0; i < 2.0; i++){
+                        return "sehr gut"
+                    } break;
+                    case 2: for(let i = 2.00; i < 3.0; i++){
+                        return "gut"
+                    } break;
+                    case 3: for(let i = 3.0; i < 4.0; i++){
+                        return "befriedigend"
+                    } break;
+                    case 4: for(let i =4.0; i < 5.0; i++){
+                        return "ausreichend"
+                    } break;
+                    case 5: for(let i = 5.0; i < 6.0; i++){
+                        return "mangelhaft"
+                    } break;
+                    //default:
+                       // return "OMG! Atmendes Gemüse";
+                        //break;
+                    }*/
     };
     return Exam;
 }());
 exports.Exam = Exam;
 ;
-/*========================== Klasse Exams ==================================== */
+/*
+
+       let filteredList = bestGrade.filter((bestGrade) => {
+    return bestGrade < 2.0;
+   });
+
+========================== Klasse Exams ==================================== */
 var Exams = /** @class */ (function (_super) {
     __extends(Exams, _super);
     function Exams() {
@@ -201,4 +199,4 @@ exports.Exams = Exams;
 /** Halten Sie sich an die (partiellen) Signaturen der Methoden, die
     gegebenen Bezeichner für Exemplarvariablen und Klassen und an die
     Reihenfolge der Parameter.*/
-/** Annahme: Namen von Studenten sind niemals gleich! */ 
+/** Annahme: Namen von Studenten sind niemals gleich! */

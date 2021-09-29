@@ -27,7 +27,7 @@ teilprüfung1.setStudentGrade("Dagobert Duck", 2.2);
 teilprüfung1.setStudentGrade("Goofy Goof", 3.3);
 teilprüfung1.setStudentGrade("Kater Karlo", 4.4);
 teilprüfung1.setStudentGrade("Daisy Duck", 5.5);
-teilprüfung1.setStudentGrade("Phantomias2", 1.5); // Kein Student mit diesem Namen gefunden
+teilprüfung1.setStudentGrade("Phantomias", 1.5); // Kein Student mit diesem Namen gefunden
 
 /*================================================================================================ */
 
@@ -41,12 +41,12 @@ teilprüfung1.setStudentGrade("Phantomias2", 1.5); // Kein Student mit diesem Na
 
 console.log(teilprüfung1.getExamNumber()); // Teilprüfung: 1
 
-console.log(teilprüfung1.printStudents()); // Studenten: ...,...
+console.table(teilprüfung1.printStudents()); // Studenten: ...,...
 
 teilprüfung1.meanGrade(); // Notendurchnitt:
 
 teilprüfung1.bestGrade(); // Beste Note:
 
-console.log(teilprüfung1.studentsWithGrade()); // Studenten mit Note:
+console.table(teilprüfung1.studentsWithGrade()); // Studenten mit Note:
 
 teilprüfung1.bestStudents(); // Bester Student
