@@ -29,7 +29,7 @@ teilprüfung1.setStudentGrade("Phantomias",1.5);             // Kein Student mit
 
 /*======================= Gebe alles in Console aus ============================================== */
 console.log(teilprüfung1.getExamNumber());      // Teilprüfung: 1
-console.log(teilprüfung1.printStudents());      // Studenten: ...,...
+console.table(teilprüfung1.printStudents());      // Studenten: ...,...
 teilprüfung1.meanGrade();                       // Notendurchnitt:
 teilprüfung1.bestGrade();                       // Beste Note:
 console.table(teilprüfung1.studentsWithGrade());  // Studenten mit Note:
