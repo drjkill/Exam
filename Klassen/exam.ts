@@ -1,7 +1,12 @@
     /*========================== Klasse Exams ==================================== */
     /**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
 export class Exams { 
-    exams:  Array<Exam>= []
+    exams:  Array<Exams>= []
+    examNumber:       number;
+    constructor(exams:  Array<Exams>= [],examNumber:number){
+        this.exams = exams
+        this.examNumber = examNumber;
+    }
      /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
          10 Instanzen der Klasse Exam zu verwalten (in Form einer
          Exemplarvariable).*/
@@ -98,28 +103,20 @@ export class Exams {
         
     };
      printStudentsWithGrades() {
-        const grade:number[] = this.grades
-        switch (true) {
-            case (grade < 2.0):
-                console.log('sehr gut');
-                break;
-            case (gradess < 3.0):
-                console.log('gut');
-                break;
-            case (gradess < 4.0):
-                console.log('befriedigent');
-                break;
-            case (gradess < 5.0):
-                console.log('ausreichend');
-                break;
-            case (gradess < 6.0):
-                console.log('mangelhaft');
-                break;    
-            default:
-                console.log('OMG Atmendes Gemüse');
-        }
-      };
+        const grade=this.grades.forEach(function(grade){
+            if (grade < 2.0){
+                return'sehr gut';
+            } else if(grade < 3.0) {
+                return 'gut';
+            } else if (grade < 4.0){
+                return 'befriedigent';
+            }else if (grade < 5.0) {
+                return 'ausreichend';
+            } else if (grade < 6.0) {
+                return 'mangelhaft';
+            } else {
+                return 'OMG Atmendes Gemüse';
+            }            
+        } ); return grade           
+      };  
     };
-
-
-

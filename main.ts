@@ -1,7 +1,9 @@
-import { Exam } from "./Klassen/exam";
+import { Exam, Exams } from "./Klassen/exam";
+const prüfung1 = new Exams(undefined,1);
 
 /*====================== Erstelle Teilprüfung 1 ================================================== */
 const teilprüfung1 = new Exam(1,10,[],[]);
+const teilprüfung2 = new Exam(1,10,[],[]);
 
 /*====================== Füge initial Studenten hinzu ============================================ */
 teilprüfung1.addStudent("Donald Duck");
@@ -34,3 +36,8 @@ teilprüfung1.meanGrade();                       // Notendurchnitt:
 teilprüfung1.bestGrade();                       // Beste Note:
 console.table(teilprüfung1.studentsWithGrade());  // Studenten mit Note:
 teilprüfung1.bestStudents();                    // Bester Student
+console.table(teilprüfung1.printStudentsWithGrades())
+prüfung1.addExam(teilprüfung1)
+prüfung1.addExam(teilprüfung1);
+prüfung1.getExam()
+prüfung1.removeExam(1)
