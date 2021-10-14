@@ -1,57 +1,42 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Exam = exports.Exams = void 0;
-/*========================== Klasse Exams ==================================== */
-/**Fügen Sie eine Klasse Exams in ihr Projekt ein. */
+/*=================== Klasse Exams ============================================================= */
 class Exams {
-    constructor(exams = [], examNumber) {
-        this.exams = [];
+    constructor(exams) {
         this.exams = exams;
-        this.examNumber = examNumber;
     }
-    /** Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
-        10 Instanzen der Klasse Exam zu verwalten (in Form einer
-        Exemplarvariable).*/
-    /**Fügen Sie im Konstruktor der Klasse Exams 5 Prüfungen hinzu
-      (Klassen definieren Typen; Eine Klasse, viele Instanzen/Exemplare */
-    /**Fügen Sie eine Methode ein, die eine Prüfung anhand der
-       Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt */
-    getExam() {
-        console.log(`Prüfung: ${this.exams} `);
-        return this.exams;
-    }
-    ;
-    /**Ermöglichen Sie das Hinzufügen addExam - hier soll ein Examen
-       übergeben werden. (Methode, Parameter, Typ) Wenn alle Examen
-       hinzugefügt worden sind führt jeder weitere Aufruf der Methode zu der
-       Ausgabe „Es können keine weiteren Prüfungsergebnisse erfasst
-       werden!“ (Methode, bedingte Anweisung, boolescher Ausdruck) */
-    addExam(exam) {
+    addExam() {
         if (this.exams.length < 10) {
-            this.exams.push(exam);
+            this.exams.push(Exam);
+            return exam;
         }
         else {
             console.log("Es können keine weiteren Prüfungsergebnisse erfasst werden!");
         }
     }
-    ;
-    /** Ermöglichen Sie das Löschen eines Examens removeExam. Das zu
-        löschende Examen soll durch einen Parameter identifiziert werden.
-        Sollte kein solches Examen existieren wird die Meldung „Das
-        angegebenen Examen existiert nicht und kann somit nicht gelöscht
-        werden“ ausgegeben werden. (Methode, bedingte Anweisung,
-        boolescher Ausdruck)*/
-    removeExam(examNumber) {
-        this.exams = this.exams.filter(exam => exam.examNumber !== examNumber);
+    removeExam(exam) {
+        const dontExists = (!this.exams.some(exam => exam !== exam));
+        if (dontExists) {
+            console.log("Das angegebenen Examen existiert nicht und kann somit nicht gelöscht werden");
+        }
+        else {
+            this.exams = this.exams.filter(exam => exam !== exam);
+        }
     }
     ;
 }
 exports.Exams = Exams;
 ;
-/*=================== Klasse Exam ========================================= */
-class Exam extends Exams {
+/*============================================================================================== */
+/*
+    => Exam ist eine Instanz von Exams
+    => Exams hat maximal 10 Exam
+    =>
+*/
+/*=================== Klasse Exam ============================================================== */
+class Exam {
     constructor(examNumber, anzahlTeilnehmer, students, grades) {
-        super();
         this.examNumber = examNumber;
         this.anzahlTeilnehmer = anzahlTeilnehmer;
         this.students = students;
@@ -117,29 +102,19 @@ class Exam extends Exams {
     }
     ;
     printStudentsWithGrades() {
-        const grade = this.grades.forEach(function (grade) {
-            if (grade < 2.0) {
-                return 'sehr gut';
-            }
-            else if (grade < 3.0) {
-                return 'gut';
-            }
-            else if (grade < 4.0) {
-                return 'befriedigent';
-            }
-            else if (grade < 5.0) {
-                return 'ausreichend';
-            }
-            else if (grade < 6.0) {
-                return 'mangelhaft';
-            }
-            else {
-                return 'OMG Atmendes Gemüse';
-            }
-        });
-        return grade;
+        const printStudentsWithGrades = [];
+        for (let i = 0; i < this.students.length && i < this.grades.length; i++)
+            printStudentsWithGrades[i] = [this.students[i], this.grades[i]];
+        printStudentsWithGrades[0][1] = "sehr gut";
+        printStudentsWithGrades[1][1] = " gut";
+        printStudentsWithGrades[2][1] = "befriedigent";
+        printStudentsWithGrades[3][1] = "ausreichend";
+        printStudentsWithGrades[4][1] = "mangelhaft";
+        printStudentsWithGrades[5][1] = "sehr gut";
+        console.table(printStudentsWithGrades);
     }
     ;
 }
 exports.Exam = Exam;
 ;
+/*============================================================================================== */ 

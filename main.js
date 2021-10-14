@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const exam_1 = require("./Klassen/exam");
-const prüfung1 = new exam_1.Exams(undefined, 1);
 /*====================== Erstelle Teilprüfung 1 ================================================== */
 const teilprüfung1 = new exam_1.Exam(1, 10, [], []);
 const teilprüfung2 = new exam_1.Exam(1, 10, [], []);
@@ -33,7 +32,3 @@ teilprüfung1.bestGrade(); // Beste Note:
 console.table(teilprüfung1.studentsWithGrade()); // Studenten mit Note:
 teilprüfung1.bestStudents(); // Bester Student
 console.table(teilprüfung1.printStudentsWithGrades());
-prüfung1.addExam(teilprüfung1);
-prüfung1.addExam(teilprüfung1);
-prüfung1.getExam();
-prüfung1.removeExam(1);
