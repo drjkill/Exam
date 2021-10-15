@@ -1,40 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Exam = exports.Exams = void 0;
-/*=================== Klasse Exams ============================================================= */
+/*=================== Klasse Exams/ Prüfung ============================================================= */
 class Exams {
-    constructor(exams) {
-        this.exams = exams;
+    constructor() {
     }
-    addExam() {
-        if (this.exams.length < 10) {
-            this.exams.push(Exam);
-            return exam;
-        }
-        else {
-            console.log("Es können keine weiteren Prüfungsergebnisse erfasst werden!");
-        }
-    }
-    removeExam(exam) {
-        const dontExists = (!this.exams.some(exam => exam !== exam));
-        if (dontExists) {
-            console.log("Das angegebenen Examen existiert nicht und kann somit nicht gelöscht werden");
-        }
-        else {
-            this.exams = this.exams.filter(exam => exam !== exam);
-        }
-    }
-    ;
 }
 exports.Exams = Exams;
-;
 /*============================================================================================== */
 /*
     => Exam ist eine Instanz von Exams
     => Exams hat maximal 10 Exam
     =>
 */
-/*=================== Klasse Exam ============================================================== */
+/*=================== Klasse Exam / Teilprüfung============================================================== */
 class Exam {
     constructor(examNumber, anzahlTeilnehmer, students, grades) {
         this.examNumber = examNumber;
@@ -102,19 +81,33 @@ class Exam {
     }
     ;
     printStudentsWithGrades() {
-        const printStudentsWithGrades = [];
-        for (let i = 0; i < this.students.length && i < this.grades.length; i++)
-            printStudentsWithGrades[i] = [this.students[i], this.grades[i]];
-        printStudentsWithGrades[0][1] = "sehr gut";
-        printStudentsWithGrades[1][1] = " gut";
-        printStudentsWithGrades[2][1] = "befriedigent";
-        printStudentsWithGrades[3][1] = "ausreichend";
-        printStudentsWithGrades[4][1] = "mangelhaft";
-        printStudentsWithGrades[5][1] = "sehr gut";
-        console.table(printStudentsWithGrades);
+        const pSWG = this.studentsWithGrade();
+        for (let i = 0; i < pSWG.length; i++) {
+            for (let j = 0; j < pSWG[i].length; j++) {
+                if (pSWG[i][1] < 2.0 && pSWG[i][1] > 0) {
+                    pSWG[i][1] = "sehr gut";
+                }
+                else if (pSWG[i][1] < 3.0 && pSWG[i][1] > 0) {
+                    pSWG[i][1] = "gut";
+                }
+                else if (pSWG[i][1] < 4.0 && pSWG[i][1] > 0) {
+                    pSWG[i][1] = "befriedigent";
+                }
+                else if (pSWG[i][1] < 5.0 && pSWG[i][1] > 0) {
+                    pSWG[i][1] = "ausreichend";
+                }
+                else if (pSWG[i][1] < 6.0 && pSWG[i][1] > 0) {
+                    pSWG[i][1] = "mangelhaft";
+                }
+                else if (pSWG[i][1] == 0) {
+                    pSWG[i][1] = "OMG!!! Atmendes Gemüse :(";
+                }
+            }
+        }
+        ;
+        console.table(pSWG);
     }
-    ;
 }
 exports.Exam = Exam;
 ;
-/*============================================================================================== */ 
+/*============================================================================================== */
