@@ -1,10 +1,44 @@
 /*=================== Klasse Exams/ Prüfung ============================================================= */
 export class Exams {
+    exams:Array<Exam> = []
     constructor() {
-
+     return this;
     }
+    getExams(){
+        console.log(`Prüfung: ${this.exams} `)
+        return this.exams
+    }
+    indexOfExams(){
+        /*
+          Fügen Sie eine Methode ein, die eine Prüfung anhand der
+          Indexnummer (Parameter) an den Aufrufer als Ergebnis zurückgibt 
+        */   
+    }
+    printExam(){
+        /*
+        Fügen Sie eine Methode ein (printExams), die die vorhandenen
+        Prüfungen in die Konsole ausgibt (Nummer der Prüfung und
+        Durchschnittsnote) (externer Methodenaufruf )
+        */
+       console.log (`Teilprüfung: ${this.exams} hatt den Notendurchschnitt: $ {}! `)
+    }
+    addExams(newExam:Exam){
+        if (this.exams.length < 10 ) {
+            this.exams.push(newExam); } 
+        else { 
+            console.log("Es können keine weiteren Prüfungsergebnisse erfasst werden!"); 
+        }
+    }
+    removeExams(examNumber:number){
+        const dontExists:boolean = (!this.exams.some(exams => exams.examNumber === examNumber))
+        if(dontExists){
+        console.log("Das angegebene Examen existiert nicht und kann somit nicht gelöscht werden!")
+        } else {
+        this.exams = this.exams.filter(exams => exams.examNumber !== examNumber);
+        console.log("Exam " + examNumber + " removed")
+       }
 }
-/*============================================================================================== */
+/*=========================================================================================================== */
 
 /*
     => Exam ist eine Instanz von Exams
@@ -13,7 +47,7 @@ export class Exams {
 */
 
 /*=================== Klasse Exam / Teilprüfung============================================================== */
-export class Exam {
+ export class Exam {
     examNumber: number
     anzahlTeilnehmer: number;
     students: string[];
@@ -53,10 +87,11 @@ export class Exam {
         }
         return this.grades
     };
-    meanGrade(): void {
+    meanGrade(): number {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length
         console.table("Notendurchschnitt: " + average);
+        return average
     };
     bestGrade(): number[] {
         const bestGrade = this.grades;

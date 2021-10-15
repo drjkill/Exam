@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const exam_1 = require("./Klassen/exam");
 /*====================== Erstelle Teilprüfung 1 ================================================== */
+const prüfung = new exam_1.Exams();
 const teilprüfung1 = new exam_1.Exam(1, 10, [], []);
 const teilprüfung2 = new exam_1.Exam(1, 10, [], []);
 /*====================== Füge initial Studenten hinzu ============================================ */
@@ -18,7 +19,7 @@ teilprüfung1.setStudentGrade("Dagobert Duck", 2.2);
 teilprüfung1.setStudentGrade("Goofy Goof", 3.3);
 teilprüfung1.setStudentGrade("Kater Karlo", 4.4);
 teilprüfung1.setStudentGrade("Daisy Duck", 5.5);
-teilprüfung1.setStudentGrade("Phantomias", 1.5); // Kein Student mit diesem Namen gefunden
+teilprüfung1.setStudentGrade("Phantomias", 0); // Kein Student mit diesem Namen gefunden
 /*================================================================================================ */
 /**Fügen Sie eine Methode ein (printExams), die die vorhandenen
    Prüfungen in die Konsole ausgibt (Nummer der Prüfung und
@@ -32,3 +33,7 @@ teilprüfung1.bestGrade(); // Beste Note:
 console.table(teilprüfung1.studentsWithGrade()); // Studenten mit Note:
 teilprüfung1.bestStudents(); // Bester Student
 console.table(teilprüfung1.printStudentsWithGrades());
+/*=============================== EXAMS ================================*/
+prüfung.addExams(teilprüfung1);
+console.log(prüfung.exams);
+prüfung.printExam();
