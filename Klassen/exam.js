@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// @ts-ignore
 exports.Exam = void 0;
 /*=================== Klasse Exam / Teilprüfung============================================================== */
 class Exam {
@@ -45,7 +46,7 @@ class Exam {
     meanGrade() {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length;
-        // console.table("Notendurchschnitt: " + average.toFixed(1));
+        console.table("Notendurchschnitt: " + average);
         return average;
     }
     ;

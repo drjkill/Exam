@@ -1,4 +1,5 @@
 
+
 /*=================== Klasse Exam / Teilprüfung============================================================== */
  export class Exam {
     examNumber: number
@@ -40,10 +41,11 @@
         }
         return this.grades
     };
-    meanGrade() {
+    meanGrade(): number {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length
-       // console.table("Notendurchschnitt: " + average.toFixed(1));
+        console.table("Notendurchschnitt: " + average);
+
         return average
     };
     bestGrade(): number[] {

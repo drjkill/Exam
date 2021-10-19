@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// @ts-ignore
 exports.Exams = void 0;
 /*=================== Klasse Exams/ Prüfung ============================================================= */
 class Exams {
