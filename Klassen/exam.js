@@ -1,18 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Exam = exports.Exams = void 0;
-/*=================== Klasse Exams/ Prüfung ============================================================= */
-class Exams {
-    constructor() {
-    }
-}
-exports.Exams = Exams;
-/*============================================================================================== */
-/*
-    => Exam ist eine Instanz von Exams
-    => Exams hat maximal 10 Exam
-    =>
-*/
+exports.Exam = void 0;
 /*=================== Klasse Exam / Teilprüfung============================================================== */
 class Exam {
     constructor(examNumber, anzahlTeilnehmer, students, grades) {
@@ -57,7 +45,8 @@ class Exam {
     meanGrade() {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length;
-        console.table("Notendurchschnitt: " + average);
+        // console.table("Notendurchschnitt: " + average.toFixed(1));
+        return average;
     }
     ;
     bestGrade() {
@@ -69,7 +58,7 @@ class Exam {
     studentsWithGrade() {
         const studentsWithGrade = [];
         for (let i = 0; i < this.students.length && i < this.grades.length; i++)
-            studentsWithGrade[i] = [this.students[i], this.grades[i]];
+            studentsWithGrade[i] = [this.students[i], this.grades[i].toFixed(1)];
         return studentsWithGrade;
     }
     ;
@@ -96,16 +85,16 @@ class Exam {
                 else if (pSWG[i][1] < 5.0 && pSWG[i][1] > 0) {
                     pSWG[i][1] = "ausreichend";
                 }
-                else if (pSWG[i][1] < 6.0 && pSWG[i][1] > 0) {
+                else if (pSWG[i][1] == 5.0 && pSWG[i][1] > 0) {
                     pSWG[i][1] = "mangelhaft";
                 }
-                else if (pSWG[i][1] == 0) {
+                else if (pSWG[i][1] > 5.0) {
                     pSWG[i][1] = "OMG!!! Atmendes Gemüse :(";
                 }
             }
         }
         ;
-        console.table(pSWG);
+        return pSWG;
     }
 }
 exports.Exam = Exam;

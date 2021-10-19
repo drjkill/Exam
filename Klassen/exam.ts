@@ -1,19 +1,6 @@
-/*=================== Klasse Exams/ Prüfung ============================================================= */
-export class Exams {
-    constructor() {
-
-    }
-}
-/*============================================================================================== */
-
-/*
-    => Exam ist eine Instanz von Exams
-    => Exams hat maximal 10 Exam
-    => 
-*/
 
 /*=================== Klasse Exam / Teilprüfung============================================================== */
-export class Exam {
+ export class Exam {
     examNumber: number
     anzahlTeilnehmer: number;
     students: string[];
@@ -53,10 +40,11 @@ export class Exam {
         }
         return this.grades
     };
-    meanGrade(): void {
+    meanGrade() {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length
-        console.table("Notendurchschnitt: " + average);
+       // console.table("Notendurchschnitt: " + average.toFixed(1));
+        return average
     };
     bestGrade(): number[] {
         const bestGrade = this.grades;
@@ -66,7 +54,7 @@ export class Exam {
     studentsWithGrade(): (string | number)[][] {
         const studentsWithGrade = [];
         for (let i = 0; i < this.students.length && i < this.grades.length; i++)
-            studentsWithGrade[i] = [this.students[i], this.grades[i]];
+            studentsWithGrade[i] = [this.students[i], this.grades[i].toFixed(1)];
         return studentsWithGrade
     };
     bestStudents(): void {
@@ -88,13 +76,13 @@ export class Exam {
                     pSWG[i][1] = "befriedigent"
                 } else if (pSWG[i][1] < 5.0 && pSWG[i][1] > 0) {
                     pSWG[i][1] = "ausreichend"
-                } else if (pSWG[i][1] < 6.0 && pSWG[i][1] > 0) {
+                } else if (pSWG[i][1] == 5.0 && pSWG[i][1] > 0) {
                     pSWG[i][1] = "mangelhaft"
-                } else if (pSWG[i][1] == 0) {
+                } else if (pSWG[i][1] > 5.0) {
                     pSWG[i][1] = "OMG!!! Atmendes Gemüse :("
                 }
             }
-        }; console.table(pSWG)
+        };  return pSWG
     }
 };
 /*============================================================================================== */
