@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// @ts-ignore
 exports.Exams = void 0;
+const exam_1 = require("./exam");
 /*=================== Klasse Exams/ Prüfung ============================================================= */
 class Exams {
     constructor() {
-        /*=> Fügen Sie der Klasse Exams einen Zustand hinzu, der es erlaubt bis zu
-             10 Instanzen der Klasse Exam zu verwalten (in Form einer
-             Exemplarvariable). */
         this.exams = [];
+        this.addExam(new exam_1.Exam(1, 10, ["aaa", "bbb", "ccc", "ddd", "eee", "fff"], [1.1, 2.2, 3.3, 4.4, 4.6, 5, 5]));
+        this.addExam(new exam_1.Exam(2, 10, ["ggg", "hhh", "iii", "jjj", "kkk", "lll"], [2.1, 3.2, 1.3, 2.4, 5.6, 3, 5]));
+        this.addExam(new exam_1.Exam(3, 10, ["mmm", "nnn", "ooo", "ppp", "qqq", "rrr"], [4.1, 3.2, 2.3, 1.4, 3.6, 5, 5]));
+        this.addExam(new exam_1.Exam(4, 10, ["sss", "ttt", "uuu", "vvv", "www", "xxx"], [3.1, 4.2, 3.3, 4.4, 4.6, 5, 5]));
+        this.addExam(new exam_1.Exam(5, 10, ["yyy", "zzz", "ööö", "äää", "üüü", "ßßß"], [5.1, 2.2, 3.3, 4.4, 4.6, 5, 5]));
         return this;
     }
     getExam() {
@@ -20,7 +22,7 @@ class Exams {
     }
     printExam() {
         for (let i = 0; i < this.exams.length; i++)
-            console.log(`Teilprüfung: ${this.exams[i].examNumber} hatt den Notendurchschnitt: ${this.exams[i].meanGrade()}! `);
+            console.log(`Teilprüfung: ${this.exams[i].examNumber} hatt den Notendurchschnitt: ${this.exams[i].meanGrade().toFixed(1)}! `);
     }
     addExam(newExam) {
         if (this.exams.length < 10) {

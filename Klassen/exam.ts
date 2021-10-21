@@ -44,8 +44,6 @@
     meanGrade(): number {
         const summe = this.grades.reduce((a, b) => a + b, 0);
         const average = summe / this.grades.length
-        console.table("Notendurchschnitt: " + average);
-
         return average
     };
     bestGrade(): number[] {
